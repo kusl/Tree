@@ -12,5 +12,12 @@ namespace TreeLibraryTests
             BinarySearchTree bst = new BinarySearchTree();
             Assert.IsNull(bst.Root);
         }
+        [TestMethod]
+        public void AddNodeToNullTree()
+        {
+            BinarySearchTree bst = new BinarySearchTree();
+            bst.Add(5);
+            Assert.AreEqual(5, bst.Root.Value);
+        }
     }
 }

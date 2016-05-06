@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TreeLibrary
 {
-    public class BinarySearchTreeNode
+    public sealed class BinarySearchTreeNode
     {
         public BinarySearchTreeNode LeftChild { get; set; }
         public BinarySearchTreeNode RightChild { get; set; }

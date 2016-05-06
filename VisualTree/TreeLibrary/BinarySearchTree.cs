@@ -6,12 +6,19 @@ using System.Threading.Tasks;
 
 namespace TreeLibrary
 {
-    public class BinarySearchTree
+    public sealed class BinarySearchTree
     {
         public BinarySearchTreeNode Root { get; set; }
         public BinarySearchTree()
         {
             Root = null;
+        }
+        public void Add(int value)
+        {
+            if (Root == null)
+            {
+                Root = new BinarySearchTreeNode(value);
+            }
         }
     }
 }
