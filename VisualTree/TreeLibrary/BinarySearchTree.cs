@@ -9,5 +9,9 @@ namespace TreeLibrary
     public class BinarySearchTree
     {
         public BinarySearchTreeNode Root { get; set; }
+        public BinarySearchTree()
+        {
+            Root = null;
+        }
     }
 }

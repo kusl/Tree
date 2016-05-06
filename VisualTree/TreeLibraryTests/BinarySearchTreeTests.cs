@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using TreeLibrary;
 
 namespace TreeLibraryTests
 {
@@ -7,8 +8,10 @@ namespace TreeLibraryTests
     public class BinarySearchTreeTests
     {
         [TestMethod]
-        public void TestMethod1()
+        public void CreateNullTree()
         {
+            BinarySearchTree bst = new BinarySearchTree();
+            Assert.IsNull(bst.Root);
         }
     }
 }
