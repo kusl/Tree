@@ -19,5 +19,13 @@ namespace TreeLibraryTests
             bst.Add(5);
             Assert.AreEqual(5, bst.Root.Value);
         }
+        [TestMethod]
+        public void RemoveRootWithNoChildren()
+        {
+            BinarySearchTree bst = new BinarySearchTree();
+            bst.Add(5);
+            bst.Remove(5);
+            Assert.IsNull(bst.Root);
+        }
     }
 }

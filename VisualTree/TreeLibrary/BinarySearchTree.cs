@@ -20,5 +20,16 @@ namespace TreeLibrary
                 Root = new BinarySearchTreeNode(value);
             }
         }
+
+        public void Remove(int value)
+        {
+            if (Root != null && Root.Value == value)
+            {
+                if (Root.LeftChild == null && Root.RightChild == null)
+                {
+                    Root = null;
+                }
+            }
+        }
     }
 }
