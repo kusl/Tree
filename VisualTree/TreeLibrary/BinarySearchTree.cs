@@ -20,7 +20,6 @@ namespace TreeLibrary
                 Root = new BinarySearchTreeNode(value);
             }
         }
-
         public void Remove(int value)
         {
             if (Root != null && Root.Value == value)
@@ -30,6 +29,18 @@ namespace TreeLibrary
                     Root = null;
                 }
             }
+        }
+        public bool Contains(int value)
+        {
+            if(Root == null)
+            {
+                return false;
+            }
+            if (Root.Value == value)
+            {
+                return true;
+            }
+            return false;
         }
     }
 }
