@@ -31,16 +31,14 @@ namespace TreeLibraryTests
         public void SearchEmptyTree()
         {
             BinarySearchTree bst = new BinarySearchTree();
-            bool actualResult = bst.Contains(5);
-            Assert.IsFalse(actualResult);
+            Assert.IsFalse(bst.Contains(5));
         }
         [TestMethod]
         public void SearchTreeWithJustRootNode()
         {
             BinarySearchTree bst = new BinarySearchTree();
             bst.Add(5);
-            bool actualResult = bst.Contains(5);
-            Assert.IsTrue(actualResult);
+            Assert.IsTrue(bst.Contains(5));
         }
     }
 }
