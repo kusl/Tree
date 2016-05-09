@@ -13,6 +13,20 @@ namespace TreeLibraryTests
             Assert.IsNull(bst.Root);
         }
         [TestMethod]
+        public void TestIsEmptyForEmptyTree()
+        {
+            BinarySearchTree bst = new BinarySearchTree();
+            Assert.IsNull(bst.Root);
+            Assert.IsTrue(bst.IsEmpty());
+        }
+        [TestMethod]
+        public void TestIsEmptyTreeNonEmpty()
+        {
+            BinarySearchTree bst = new BinarySearchTree();
+            bst.Add(5);
+            Assert.IsFalse(bst.IsEmpty());
+        }
+        [TestMethod]
         public void AddNodeToNullTree()
         {
             BinarySearchTree bst = new BinarySearchTree();

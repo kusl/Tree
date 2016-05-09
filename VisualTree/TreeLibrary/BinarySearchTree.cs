@@ -13,6 +13,10 @@ namespace TreeLibrary
         {
             Root = null;
         }
+        public bool IsEmpty()
+        {
+            return Root == null;
+        }
         public void Add(int value)
         {
             if (Root == null)
@@ -28,6 +32,21 @@ namespace TreeLibrary
                 {
                     Root = null;
                 }
+            }
+        }
+        private BinarySearchTreeNode Search_Recursively(int value, BinarySearchTreeNode node)
+        {
+            if (node == null || node.Value == value)
+            {
+                return node;
+            }
+            else if (value < node.Value)
+            {
+                return Search_Recursively(value, node.LeftChild);
+            }
+            else 
+            {
+                return Search_Recursively(value, node.RightChild);
             }
         }
         public bool Contains(int value)
