@@ -9,6 +9,7 @@ namespace TreeLibrary
     public sealed class BinarySearchTree
     {
         public BinarySearchTreeNode Root { get; set; }
+        public int Count { get; private set; }
         public BinarySearchTree()
         {
             Root = null;
@@ -19,10 +20,11 @@ namespace TreeLibrary
         }
         public void Add(int value)
         {
-            if (Root == null)
+            if (IsEmpty())
             {
                 Root = new BinarySearchTreeNode(value);
             }
+            Count++;
         }
         public void Remove(int value)
         {
