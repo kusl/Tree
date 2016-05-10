@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TreeLibrary
 {
@@ -26,8 +22,6 @@ namespace TreeLibrary
             intTreeSize = intSize;
             intTop = intNull;
             intStackIndex = 1;
-
-
             for (int i = 1; i <= intTreeSize; i++)
             {
                 objTree[i] = new TwoThreeNode();
@@ -42,10 +36,7 @@ namespace TreeLibrary
         public int Compare(string strTemp1, string strTemp2)
         {
             int intCompare = 1;
-            if (strTemp1 != null)
-                intCompare = String.Compare(strTemp1, strTemp2);
-
-
+            if (strTemp1 != null) { intCompare = String.Compare(strTemp1, strTemp2); }
             return intCompare;
         }
         public int FindNode(string strKey)
@@ -242,10 +233,7 @@ namespace TreeLibrary
 
         public int Top
         {
-            get
-            {
-                return intTop;
-            }
+            get { return intTop; }
         }
 
 
