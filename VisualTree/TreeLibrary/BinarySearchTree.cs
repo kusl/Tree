@@ -26,6 +26,10 @@ namespace TreeLibrary
             }
             Count++;
         }
+        private void AddRecursively()
+        {
+
+        }
         public void Remove(int value)
         {
             if (Root != null && Root.Value == value)
@@ -34,21 +38,6 @@ namespace TreeLibrary
                 {
                     Root = null;
                 }
-            }
-        }
-        private BinarySearchTreeNode Search_Recursively(int value, BinarySearchTreeNode node)
-        {
-            if (node == null || node.Value == value)
-            {
-                return node;
-            }
-            else if (value < node.Value)
-            {
-                return Search_Recursively(value, node.LeftChild);
-            }
-            else 
-            {
-                return Search_Recursively(value, node.RightChild);
             }
         }
         public bool Contains(int value)
@@ -61,7 +50,26 @@ namespace TreeLibrary
             {
                 return true;
             }
-            return false;
+            if (SearchRecursively(Root, value).Value == value)
+            {
+                return true;
+            }
+            else { return false; }
+        }
+        private BinarySearchTreeNode SearchRecursively(BinarySearchTreeNode node, int value)
+        {
+            if (node == null || node.Value == value)
+            {
+                return node;
+            }
+            else if (value < node.Value)
+            {
+                return SearchRecursively(node.LeftChild, value);
+            }
+            else
+            {
+                return SearchRecursively(node.RightChild, value);
+            }
         }
     }
 }
