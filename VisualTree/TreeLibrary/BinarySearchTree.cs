@@ -28,7 +28,7 @@ namespace TreeLibrary
         }
         private void AddRecursively()
         {
-
+            
         }
         public void Remove(int value)
         {
@@ -46,11 +46,11 @@ namespace TreeLibrary
             {
                 return false;
             }
-            if (Root.Value == value)
+            if (Root.Equals(value))
             {
                 return true;
             }
-            if (SearchRecursively(Root, value).Value == value)
+            if (SearchRecursively(Root, value).Equals(value))
             {
                 return true;
             }
@@ -62,11 +62,11 @@ namespace TreeLibrary
             {
                 return node;
             }
-            else if (value < node.Value)
+            else if (node.IsGreaterThan(value))
             {
                 return SearchRecursively(node.LeftChild, value);
             }
-            else
+            else 
             {
                 return SearchRecursively(node.RightChild, value);
             }
