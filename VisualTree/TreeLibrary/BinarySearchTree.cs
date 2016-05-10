@@ -8,7 +8,7 @@ namespace TreeLibrary
 {
     public sealed class BinarySearchTree
     {
-        public BinarySearchTreeNode Root { get; set; }
+        public BinarySearchTreeNode Root { get; private set; }
         public int Count { get; private set; }
         public BinarySearchTree()
         {
