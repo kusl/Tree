@@ -26,36 +26,17 @@ namespace TreeLibrary
 
         public bool Equals(int value)
         {
-            if (this.Value == value)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return this.Value == value ? true : false;
         }
         public bool IsLessThan(int value)
         {
-            if (this.Value < value)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return this.Value < value ? true : false;
+
         }
         public bool IsGreaterThan(int value)
         {
-            if (this.Value > value)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return this.Value > value ? true : false;
+
         }
     }
 }
