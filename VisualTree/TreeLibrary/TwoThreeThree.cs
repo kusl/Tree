@@ -9,13 +9,9 @@ namespace TreeLibrary
         private string strTempKey;
         TwoThreeStack objTwoThreeStack;
         static int intNull = -1;
-
-
         public TwoThreeTree()
         {
         }
-
-
         public TwoThreeTree(int intSize)
         {
             objTree = new TwoThreeNode[intSize + 1];
@@ -31,8 +27,6 @@ namespace TreeLibrary
                 objTree[i].RightChild = intNull;
             }
         }
-
-
         public int Compare(string strTemp1, string strTemp2)
         {
             int intCompare = 1;
@@ -43,14 +37,10 @@ namespace TreeLibrary
         {
             int intTempPointerInside;
             intTempPointerInside = intTop;
-
-
             while (intTempPointerInside != intNull)
             {
                 int intLeftDataCompare = Compare(objTree[intTempPointerInside].LeftData, strKey);
                 int intRightDataCompare = Compare(objTree[intTempPointerInside].RightData, strKey);
-
-
                 if (intLeftDataCompare == 0)
                 {
                     objTwoThreeStack.Push(intTempPointerInside);
@@ -63,8 +53,6 @@ namespace TreeLibrary
                     objTree[intTempPointerInside].RightDataDuplicates = 1;
                     return intNull;
                 }
-
-
                 if (intLeftDataCompare > 0)
                 {
                     objTwoThreeStack.Push(intTempPointerInside);
@@ -88,8 +76,6 @@ namespace TreeLibrary
             }
             return (objTwoThreeStack.Pop());
         }
-
-
         public void InOrderHelper(int ptr)
         {
             if (ptr != intNull)
@@ -105,14 +91,12 @@ namespace TreeLibrary
         }
         public bool InsertTwoThree(string strKey)
         {
-
-
             objTwoThreeStack = new TwoThreeStack(intTreeSize / 2);
             int intTempPointerInside;
             bool bNotDone;
             if (intTop == intNull)
             {
-                NewRoot(intTop, strKey, intNull);
+                NewRoot(Top, strKey, intNull);
                 return true;
             }
             else
@@ -135,9 +119,9 @@ namespace TreeLibrary
                         else
                         {
                             Split(intTempPointerInside, strTempKey, intTempPointer);
-                            if (intTempPointerInside == intTop)
+                            if (intTempPointerInside == Top)
                             {
-                                NewRoot(intTop, strTempKey, intTempPointer);
+                                NewRoot(Top, strTempKey, intTempPointer);
                                 bNotDone = false;
                             }
                             else
@@ -149,8 +133,6 @@ namespace TreeLibrary
                 return true;
             }
         }
-
-
         public void NewRoot(int intLeftChild, string strLeftData, int intMiddileChild)
         {
             int intTempPointerInside;
@@ -160,19 +142,13 @@ namespace TreeLibrary
             objTree[intTempPointerInside].MiddleChild = intMiddileChild;
             intTop = intTempPointerInside;
         }
-
-
         public void PrintInOrder(int ptr)
         {
             InOrderHelper(ptr);
         }
-
-
         public void PutIn(int intTempPointerInside, string strKey, int intChildPointer)
         {
             int intLeftDataCompare = Compare(objTree[intTempPointerInside].LeftData, strKey);
-
-
             if (intLeftDataCompare < 0)
             {
                 objTree[intTempPointerInside].RightData = strKey;
@@ -186,19 +162,13 @@ namespace TreeLibrary
                 objTree[intTempPointerInside].MiddleChild = intChildPointer;
             }
         }
-
-
         public void Split(int intTempPointerInside, string strKey, int intChildPointer)
         {
             int intStackIndexInside;
             intStackIndexInside = intStackIndex;
             intStackIndex++;
-
-
             int intLeftDataCompare = Compare(objTree[intTempPointerInside].LeftData, strKey);
             int intRightDataCompare = Compare(objTree[intTempPointerInside].RightData, strKey);
-
-
             if (intRightDataCompare < 0)
             {
                 objTree[intStackIndexInside].LeftData = strKey;
@@ -229,8 +199,6 @@ namespace TreeLibrary
             objTree[intTempPointerInside].RightChild = intNull;
             intTempPointer = intStackIndexInside;
         }
-
-
         public int Top
         {
             get { return intTop; }
