@@ -1,6 +1,6 @@
 ﻿namespace TreeLibrary
 {
-    public class TwoThreeStack
+    public sealed class TwoThreeStack
     {
         int[] objItems;
         int intTop;

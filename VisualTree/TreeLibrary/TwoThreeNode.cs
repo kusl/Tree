@@ -1,6 +1,6 @@
 ﻿namespace TreeLibrary
 {
-    public class TwoThreeNode
+    public sealed class TwoThreeNode
     {
         private int intLeftDataDuplicates, intRightDataDuplicates;
         public TwoThreeNode()

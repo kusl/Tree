@@ -2,7 +2,7 @@
 
 namespace TreeLibrary
 {
-    public class TwoThreeTree
+    public sealed class TwoThreeTree
     {
         TwoThreeNode[] objTree;
         private int intTempPointer, intTop, intStackIndex, intTreeSize;
