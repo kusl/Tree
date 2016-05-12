@@ -8,7 +8,7 @@ namespace TreeLibrary
         private int intTempPointer, intTop, intStackIndex, intTreeSize;
         private string strTempKey;
         TwoThreeStack objTwoThreeStack;
-        static int intNull = -1;
+        static readonly int intNull = -1;
         public TwoThreeTree()
         {
         }
@@ -107,8 +107,6 @@ namespace TreeLibrary
                     intTempPointer = intNull;
                     bNotDone = true;
                     strTempKey = strKey;
-
-
                     while (bNotDone)
                     {
                         if (objTree[intTempPointerInside].RightData == null)
@@ -180,8 +178,6 @@ namespace TreeLibrary
             {
                 objTree[intStackIndexInside].LeftData = objTree[intTempPointerInside].RightData;
                 objTree[intStackIndexInside].MiddleChild = objTree[intTempPointerInside].RightChild;
-
-
                 if (intLeftDataCompare < 0)
                 {
                     objTree[intStackIndexInside].LeftChild = intChildPointer;
@@ -203,7 +199,5 @@ namespace TreeLibrary
         {
             get { return intTop; }
         }
-
-
     }
 }
