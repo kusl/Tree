@@ -18,6 +18,13 @@
             {
                 Root = new BinarySearchTreeNode(value);
             }
+            else
+            {
+                if(Root.Equals(value))
+                {
+                    // do nothing 
+                }
+            }
             Count++;
         }
         private void AddRecursively()
