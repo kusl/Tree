@@ -44,6 +44,18 @@ namespace TreeLibraryTests
             Assert.AreEqual(2, bst.Count);
         }
         [TestMethod]
+        public void AddFiveNodesToEmptyTree()
+        {
+            BinarySearchTree bst = new BinarySearchTree();
+            bst.Add(5);
+            bst.Add(12);
+            bst.Add(4);
+            bst.Add(8);
+            bst.Add(99);
+            Assert.AreEqual(5, bst.Root.Value);
+            Assert.AreEqual(5, bst.Count);
+        }
+        [TestMethod]
         public void RemoveRootWithNoChildren()
         {
             BinarySearchTree bst = new BinarySearchTree();
