@@ -24,6 +24,14 @@
                 {
                     // do nothing 
                 }
+                if(Root.IsGreaterThan(value))
+                {
+                    // go left 
+                }
+                if(Root.IsLessThan(value))
+                {
+                    // go right 
+                }
             }
             Count++;
         }
