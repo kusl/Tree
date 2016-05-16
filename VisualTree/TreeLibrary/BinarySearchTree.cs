@@ -18,26 +18,28 @@
             {
                 Root = new BinarySearchTreeNode(value);
             }
-            else
-            {
-                if(Root.Equals(value))
-                {
-                    // do nothing 
-                }
-                if(Root.IsGreaterThan(value))
-                {
-                    // go left 
-                }
-                if(Root.IsLessThan(value))
-                {
-                    // go right 
-                }
-            }
+            AddRecursively(Root, value);
             Count++;
         }
-        private void AddRecursively()
+        private BinarySearchTreeNode AddRecursively(BinarySearchTreeNode node, int value)
         {
-            
+            if (node == null)
+            {
+                node = new BinarySearchTreeNode(value);
+            }
+            else if (node.Value == value)
+            {
+                // do nothing 
+            }
+            else if (node.IsGreaterThan(value))
+            {
+                return AddRecursively(node.LeftChild, value);
+            }
+            else if (node.IsLessThan(value))
+            {
+                return AddRecursively(node.RightChild, value);
+            }
+            return null;
         }
         public void Remove(int value)
         {
