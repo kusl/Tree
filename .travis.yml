@@ -1,2 +1,2 @@
 language: csharp
-solution: VisualTree\VisualTree.sln
+solution: VisualTree/VisualTree.sln
