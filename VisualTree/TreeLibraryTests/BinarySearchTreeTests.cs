@@ -76,5 +76,16 @@ namespace TreeLibraryTests
             bst.Add(5);
             Assert.IsTrue(bst.Contains(5));
         }
+        [TestMethod]
+        public void SearchTreeWithFiveNodes()
+        {
+            BinarySearchTree bst = new BinarySearchTree();
+            bst.Add(5);
+            bst.Add(12);
+            bst.Add(4);
+            bst.Add(8);
+            bst.Add(99);
+            Assert.IsTrue(bst.Contains(8));
+        }
     }
 }

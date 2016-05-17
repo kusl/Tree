@@ -18,25 +18,29 @@
             {
                 Root = new BinarySearchTreeNode(value);
             }
-            AddRecursively(Root, value);
+            var newNode = AddRecursively(Root, value);
             Count++;
         }
         private BinarySearchTreeNode AddRecursively(BinarySearchTreeNode node, int value)
         {
-            if (node == null)
-            {
-                node = new BinarySearchTreeNode(value);
-            }
-            else if (node.Value == value)
+            if (node.Value == value)
             {
                 // do nothing 
             }
             else if (node.IsGreaterThan(value))
             {
+                if (node.LeftChild == null)
+                {
+                    return node.LeftChild = new BinarySearchTreeNode(value);
+                }
                 return AddRecursively(node.LeftChild, value);
             }
             else if (node.IsLessThan(value))
             {
+                if (node.RightChild == null)
+                {
+                    return node.RightChild = new BinarySearchTreeNode(value);
+                }
                 return AddRecursively(node.RightChild, value);
             }
             return null;
@@ -53,7 +57,7 @@
         }
         public bool Contains(int value)
         {
-            if(Root == null)
+            if (Root == null)
             {
                 return false;
             }
@@ -77,10 +81,11 @@
             {
                 return SearchRecursively(node.LeftChild, value);
             }
-            else 
+            else if (node.IsLessThan(value))
             {
                 return SearchRecursively(node.RightChild, value);
             }
+            return null;
         }
     }
 }
