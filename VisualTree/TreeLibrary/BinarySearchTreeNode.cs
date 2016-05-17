@@ -17,7 +17,6 @@
             RightChild = null;
             Value = value;
         }
-
         public bool Equals(int value)
         {
             return this.Value == value;
@@ -25,12 +24,10 @@
         public bool IsLessThan(int value)
         {
             return this.Value < value;
-
         }
         public bool IsGreaterThan(int value)
         {
             return this.Value > value;
-
         }
     }
 }
