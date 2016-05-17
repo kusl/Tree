@@ -104,6 +104,10 @@ namespace TreeLibraryTests
                 bst.Add(myRandom.Next(1, numberOfNodes));
             }
             Assert.IsFalse(bst.Contains(0));
+            for (int i = 0; i < numberOfNodes; i++)
+            {
+                Assert.IsFalse(bst.Contains(numberOfNodes + i));
+            }
         }
     }
 }
