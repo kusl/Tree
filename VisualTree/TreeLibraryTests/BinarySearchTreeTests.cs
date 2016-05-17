@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 using TreeLibrary;
 
 namespace TreeLibraryTests
@@ -91,6 +92,18 @@ namespace TreeLibraryTests
             Assert.IsTrue(bst.Contains(5));
             Assert.IsFalse(bst.Contains(89));
             Assert.IsTrue(bst.Contains(4));
+        }
+        [TestMethod]
+        public void SearchTreeWithNNodes()
+        {
+            BinarySearchTree bst = new BinarySearchTree();
+            int numberOfNodes = 3376975;
+            for (int i = 1; i < numberOfNodes; i++)
+            {
+                Random myRandom = new Random();
+                bst.Add(myRandom.Next(1, numberOfNodes));
+            }
+            Assert.IsFalse(bst.Contains(0));
         }
     }
 }

@@ -57,11 +57,7 @@
         }
         public bool Contains(int value)
         {
-            if (Root == null)
-            {
-                return false;
-            }
-            return SearchRecursively(Root, value).Equals(value);
+            return (Root != null) && (SearchRecursively(Root, value).Equals(value));
         }
         private BinarySearchTreeNode SearchRecursively(BinarySearchTreeNode node, int value)
         {
