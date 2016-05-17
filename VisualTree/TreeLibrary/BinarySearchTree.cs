@@ -18,7 +18,7 @@
             {
                 Root = new BinarySearchTreeNode(value);
             }
-            var newNode = AddRecursively(Root, value);
+            AddRecursively(Root, value);
             Count++;
         }
         private BinarySearchTreeNode AddRecursively(BinarySearchTreeNode node, int value)
