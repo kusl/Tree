@@ -61,15 +61,7 @@
             {
                 return false;
             }
-            if (Root.Equals(value))
-            {
-                return true;
-            }
-            if (SearchRecursively(Root, value).Equals(value))
-            {
-                return true;
-            }
-            else { return false; }
+            return SearchRecursively(Root, value).Equals(value);
         }
         private BinarySearchTreeNode SearchRecursively(BinarySearchTreeNode node, int value)
         {
@@ -79,10 +71,18 @@
             }
             else if (node.IsGreaterThan(value))
             {
+                if (node.LeftChild == null)
+                {
+                    return node;
+                }
                 return SearchRecursively(node.LeftChild, value);
             }
             else if (node.IsLessThan(value))
             {
+                if (node.RightChild == null)
+                {
+                    return node;
+                }
                 return SearchRecursively(node.RightChild, value);
             }
             return null;

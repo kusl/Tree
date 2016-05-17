@@ -86,6 +86,11 @@ namespace TreeLibraryTests
             bst.Add(8);
             bst.Add(99);
             Assert.IsTrue(bst.Contains(8));
+            Assert.IsTrue(bst.Contains(12));
+            Assert.IsTrue(bst.Contains(99));
+            Assert.IsTrue(bst.Contains(5));
+            Assert.IsFalse(bst.Contains(89));
+            Assert.IsTrue(bst.Contains(4));
         }
     }
 }
