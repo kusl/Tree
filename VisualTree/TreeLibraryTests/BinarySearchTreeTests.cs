@@ -98,11 +98,12 @@ namespace TreeLibraryTests
         {
             BinarySearchTree bst = new BinarySearchTree();
             int numberOfNodes = 9999999;
-            for (int i = 1; i < numberOfNodes; i++)
+            for (int i = 1; i <= numberOfNodes; i++)
             {
                 Random myRandom = new Random();
                 bst.Add(myRandom.Next(1, numberOfNodes));
             }
+            Assert.AreEqual(numberOfNodes, bst.Count);
             Assert.IsFalse(bst.Contains(0));
             for (int i = 0; i < numberOfNodes; i++)
             {
