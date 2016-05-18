@@ -63,6 +63,7 @@ namespace TreeLibraryTests
             bst.Add(5);
             bst.Remove(5);
             Assert.IsNull(bst.Root);
+            Assert.AreEqual(0, bst.Count);
         }
         [TestMethod]
         public void SearchEmptyTree()

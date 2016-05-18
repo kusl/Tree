@@ -53,7 +53,36 @@
                 {
                     Root = null;
                 }
+                else 
+                {
+                    BinarySearchTreeNode myNode = SearchRecursively(Root, value);
+                    if (myNode != null)
+                    {
+                        if (myNode.LeftChild != null && myNode.RightChild == null)
+                        {
+                            // TODO 
+                        }
+                        else if (myNode.LeftChild == null && myNode.RightChild == null)
+                        {
+                            myNode = null;
+                        }
+                        else if (myNode.LeftChild == null && myNode.RightChild != null)
+                        {
+                            // TODO
+                        }
+                        else if (myNode.LeftChild != null && myNode.RightChild == null)
+                        {
+                            // TODO
+                        }
+                    } 
+                   else
+                    {
+                        // can't delete something that doesn't exist 
+                    }
+
+                }
             }
+            Count--;
         }
         public bool Contains(int value)
         {
