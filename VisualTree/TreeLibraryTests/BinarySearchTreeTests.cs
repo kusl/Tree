@@ -98,7 +98,7 @@ namespace TreeLibraryTests
         public void SearchTreeWithNNodes()
         {
             BinarySearchTree bst = new BinarySearchTree();
-            int numberOfNodes = 9999999;
+            int numberOfNodes = 100;
             for (int i = 1; i <= numberOfNodes; i++)
             {
                 Random myRandom = new Random();
