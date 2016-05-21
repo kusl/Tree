@@ -57,6 +57,7 @@
     <Compile Include="BinarySearchTreeNodeTests.cs" />
     <Compile Include="TwoThreeStackTests.cs" />
     <Compile Include="TwoThreeTreeTests.cs" />
+    <Compile Include="TwoThreeNodeTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TreeLibrary\TreeLibrary.csproj">
