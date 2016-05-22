@@ -19,18 +19,32 @@
         }
         public bool Equals(int value)
         {
-            StepCounter.ComparisonStep++;
             return this.Value == value;
         }
         public bool IsLessThan(int value)
         {
-            StepCounter.ComparisonStep++;
             return this.Value < value;
         }
         public bool IsGreaterThan(int value)
         {
-            StepCounter.ComparisonStep++;
             return this.Value > value;
+        }
+        public int Compare(int value)
+        {
+            StepCounter.ComparisonStep++;
+            if (this.Equals(value))
+            {
+                return 0;
+            }
+            else if (this.IsLessThan(value))
+            {
+                return -1;
+            }
+            else if (this.IsGreaterThan(value))
+            {
+                return 1;
+            }
+            return 42;
         }
     }
 }

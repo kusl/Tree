@@ -23,11 +23,12 @@
         }
         private BinarySearchTreeNode AddRecursively(BinarySearchTreeNode node, int value)
         {
+            int myCompare = node.Compare(value);
             if (node.Value == value)
             {
                 // do nothing 
             }
-            else if (node.IsGreaterThan(value))
+            else if (myCompare == 1)
             {
                 if (node.LeftChild == null)
                 {
@@ -35,7 +36,7 @@
                 }
                 return AddRecursively(node.LeftChild, value);
             }
-            else if (node.IsLessThan(value))
+            else if (myCompare == -1)
             {
                 if (node.RightChild == null)
                 {
@@ -87,15 +88,16 @@
         public bool Contains(int value)
         {
             StepCounter.ResetStepCounter();
-            return (Root != null) && (SearchRecursively(Root, value).Equals(value));
+            return (Root != null) && SearchRecursively(Root, value).Compare(value) == 0 ? true : false;
         }
         private BinarySearchTreeNode SearchRecursively(BinarySearchTreeNode node, int value)
         {
+            int myCompare = node.Compare(value);
             if (node == null || node.Value == value)
             {
                 return node;
             }
-            else if (node.IsGreaterThan(value))
+            else if (myCompare == 1)
             {
                 if (node.LeftChild == null)
                 {
@@ -103,7 +105,7 @@
                 }
                 return SearchRecursively(node.LeftChild, value);
             }
-            else if (node.IsLessThan(value))
+            else if (myCompare == -1)
             {
                 if (node.RightChild == null)
                 {

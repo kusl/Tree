@@ -49,9 +49,13 @@ namespace TreeLibraryTests
         {
             BinarySearchTree bst = new BinarySearchTree();
             bst.Add(5);
+            Assert.AreEqual(1, bst.Count);
             bst.Add(12);
+            Assert.AreEqual(2, bst.Count);
             bst.Add(4);
+            Assert.AreEqual(3, bst.Count);
             bst.Add(8);
+            Assert.AreEqual(4, bst.Count);
             bst.Add(99);
             Assert.AreEqual(5, bst.Root.Value);
             Assert.AreEqual(5, bst.Count);
