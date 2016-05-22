@@ -7,7 +7,7 @@
 
 #include <cstdlib>
 //#include "include/new-tree23.h"
-#include "include/tree23.h"
+#include "tree23.h"
 #include <iostream>
 #include <vector>
 #include <functional>
