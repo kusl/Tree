@@ -35,7 +35,7 @@ private:
 			return;
 		}
 
-		std::cout << "`--> " << node->sibNumber()
+		std::cout << "`--> " << node->GetSiblingNumber()
 			<< ": ( " << node->key[0] << ", " << node->key[1] << ")" << std::endl;
 
 		if (!node->isLeaf()) {

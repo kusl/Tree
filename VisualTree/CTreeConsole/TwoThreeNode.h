@@ -3,7 +3,6 @@
 #include <iostream>
 #include <fstream>
 
-// TwoThreeNode class
 class TwoThreeNode {
 private:
 	// Gets the value of the smallest data item in the subtree
@@ -133,7 +132,7 @@ private:
 
 	// Update the parent nods efor the smallest child value
 	void updateParentSmallest(int data) {
-		switch (sibNumber()) {
+		switch (GetSiblingNumber()) {
 		case 0: if (parent->parent != NULL) parent->updateParentSmallest(data); break;
 		case 1: parent->key[0] = data; break;
 		case 2: parent->key[1] = data; break;
@@ -157,7 +156,7 @@ public:
 	}
 
 	// Get which sibling the node is
-	int sibNumber() {
+	int GetSiblingNumber() {
 		for (int i = 0; i < 3; ++i) {
 			if (this == parent->child[i]) return i;
 		}
@@ -171,6 +170,4 @@ public:
 		else insert3Siblings(newChild, newSmallest);
 	}
 };
-
-// TwoThreeTree class
 #endif
