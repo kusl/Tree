@@ -7,4 +7,5 @@ int main(int argc, char **argv) {
 		ttTree.insert(i);
 	}
 	ttTree.print();
+	std::cin.get();
 }
