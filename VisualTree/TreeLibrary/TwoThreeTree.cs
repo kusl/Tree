@@ -8,7 +8,7 @@ namespace TreeLibrary
         private int intTempPointer, intTop, intStackIndex, intTreeSize;
         private string strTempKey;
         TwoThreeStack objTwoThreeStack;
-        static readonly int intNull = -1;
+        public static readonly int intNull = -1;
         public TwoThreeTree()
         {
         }
