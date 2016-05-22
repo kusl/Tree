@@ -86,6 +86,7 @@
         }
         public bool Contains(int value)
         {
+            StepCounter.ResetStepCounter();
             return (Root != null) && (SearchRecursively(Root, value).Equals(value));
         }
         private BinarySearchTreeNode SearchRecursively(BinarySearchTreeNode node, int value)

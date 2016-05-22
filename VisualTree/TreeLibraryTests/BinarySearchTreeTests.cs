@@ -109,6 +109,7 @@ namespace TreeLibraryTests
             for (int i = 0; i < numberOfNodes; i++)
             {
                 Assert.IsFalse(bst.Contains(numberOfNodes + i));
+                Assert.IsNotNull(StepCounter.ComparisonStep);
             }
         }
     }

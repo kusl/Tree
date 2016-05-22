@@ -19,14 +19,17 @@
         }
         public bool Equals(int value)
         {
+            StepCounter.ComparisonStep++;
             return this.Value == value;
         }
         public bool IsLessThan(int value)
         {
+            StepCounter.ComparisonStep++;
             return this.Value < value;
         }
         public bool IsGreaterThan(int value)
         {
+            StepCounter.ComparisonStep++;
             return this.Value > value;
         }
     }

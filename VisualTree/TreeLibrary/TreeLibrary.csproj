@@ -43,6 +43,7 @@
     <Compile Include="BinarySearchTreeNode.cs" />
     <Compile Include="BinarySearchTree.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StepCounter.cs" />
     <Compile Include="TwoThreeNode.cs" />
     <Compile Include="TwoThreeStack.cs" />
     <Compile Include="TwoThreeTree.cs" />
