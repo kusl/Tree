@@ -1,0 +1,11 @@
+Makefile
+backup/
+dist/
+docs/
+build/
+nbproject/
+newtree23.h
+*.mk
+*.orig
+xxx.txt
+*.java
