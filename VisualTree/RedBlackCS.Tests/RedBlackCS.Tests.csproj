@@ -54,6 +54,9 @@
     <Compile Include="RedBlackEnumeratorTest.cs" />
     <Compile Include="RedBlackNodeTest.cs" />
     <Compile Include="RedBlackTest.cs" />
+    <Compile Include="RedBlackTest.GetDataTest.g.cs">
+      <DependentUpon>RedBlackTest.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <Choose>
     <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
