@@ -13,6 +13,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CTreeConsoleShaffer", "CTre
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CRedBlackTree", "CRedBlackTree\CRedBlackTree.vcxproj", "{27BC3562-F435-4B78-A348-1C7A42F615C9}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CRedBlackTreeAviDhali", "CRedBlackTreeAviDhali\CRedBlackTreeAviDhali.vcxproj", "{AA0554E2-54FA-4D7E-B39A-1224EE3E9266}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -77,6 +79,16 @@ Global
 		{27BC3562-F435-4B78-A348-1C7A42F615C9}.Release|x64.Build.0 = Release|x64
 		{27BC3562-F435-4B78-A348-1C7A42F615C9}.Release|x86.ActiveCfg = Release|Win32
 		{27BC3562-F435-4B78-A348-1C7A42F615C9}.Release|x86.Build.0 = Release|Win32
+		{AA0554E2-54FA-4D7E-B39A-1224EE3E9266}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{AA0554E2-54FA-4D7E-B39A-1224EE3E9266}.Debug|x64.ActiveCfg = Debug|x64
+		{AA0554E2-54FA-4D7E-B39A-1224EE3E9266}.Debug|x64.Build.0 = Debug|x64
+		{AA0554E2-54FA-4D7E-B39A-1224EE3E9266}.Debug|x86.ActiveCfg = Debug|Win32
+		{AA0554E2-54FA-4D7E-B39A-1224EE3E9266}.Debug|x86.Build.0 = Debug|Win32
+		{AA0554E2-54FA-4D7E-B39A-1224EE3E9266}.Release|Any CPU.ActiveCfg = Release|Win32
+		{AA0554E2-54FA-4D7E-B39A-1224EE3E9266}.Release|x64.ActiveCfg = Release|x64
+		{AA0554E2-54FA-4D7E-B39A-1224EE3E9266}.Release|x64.Build.0 = Release|x64
+		{AA0554E2-54FA-4D7E-B39A-1224EE3E9266}.Release|x86.ActiveCfg = Release|Win32
+		{AA0554E2-54FA-4D7E-B39A-1224EE3E9266}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
