@@ -511,7 +511,7 @@ bool RBtree::search(int input)
 	if (root == NULL)
 	{
 		cout << "\nEmpty Tree\n";
-		return;
+		return false;
 	}
 	int x = input;
 	node *p = root;
