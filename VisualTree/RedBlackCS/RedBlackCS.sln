@@ -1,0 +1,29 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedBlackCS", "RedBlackCS.csproj", "{C2816E8D-4CF0-4A84-9EC9-E8B30A0DF1C0}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{0EBF0251-0152-4323-B559-A6164FC9A368}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{C2816E8D-4CF0-4A84-9EC9-E8B30A0DF1C0}.Debug.ActiveCfg = Debug|.NET
+		{C2816E8D-4CF0-4A84-9EC9-E8B30A0DF1C0}.Debug.Build.0 = Debug|.NET
+		{C2816E8D-4CF0-4A84-9EC9-E8B30A0DF1C0}.Release.ActiveCfg = Release|.NET
+		{C2816E8D-4CF0-4A84-9EC9-E8B30A0DF1C0}.Release.Build.0 = Release|.NET
+		{0EBF0251-0152-4323-B559-A6164FC9A368}.Debug.ActiveCfg = Debug|.NET
+		{0EBF0251-0152-4323-B559-A6164FC9A368}.Debug.Build.0 = Debug|.NET
+		{0EBF0251-0152-4323-B559-A6164FC9A368}.Release.ActiveCfg = Release|.NET
+		{0EBF0251-0152-4323-B559-A6164FC9A368}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal
