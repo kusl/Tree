@@ -567,7 +567,7 @@ bool RBtree::search(int input)
 int main()
 {
 	//int ch, y = 0;
-	const int inputSize = 1000;
+	const int inputSize = 10;
 	RBtree obj;
 	//do
 	//{
@@ -602,6 +602,7 @@ int main()
 		obj.insert(i);
 	}
 	obj.search(inputSize);
+	obj.disp();
 	std::cout << obj.stepCounter.comparisonStep << std::endl;
 	return 1;
 }
