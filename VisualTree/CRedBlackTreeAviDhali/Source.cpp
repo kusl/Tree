@@ -2,6 +2,13 @@
 
 using namespace std;
 
+class StepCounter
+{
+public:
+	int recursionStep;
+	int comparisonStep;
+};
+
 struct node
 {
 	int key;
@@ -21,6 +28,7 @@ public:
 		root = NULL;
 	}
 	void insert();
+	void insert(int n);
 	void insertfix(node *);
 	void leftrotate(node *);
 	void rightrotate(node *);
@@ -30,12 +38,49 @@ public:
 	void disp();
 	void display(node *);
 	void search();
+	bool search(int n);
+	StepCounter stepCounter;
 };
 void RBtree::insert()
 {
 	int z, i = 0;
 	cout << "\nEnter key of the node to be inserted: ";
 	cin >> z;
+	node *p, *q;
+	node *t = new node;
+	t->key = z;
+	t->left = NULL;
+	t->right = NULL;
+	t->color = 'r';
+	p = root;
+	q = NULL;
+	if (root == NULL)
+	{
+		root = t;
+		t->parent = NULL;
+	}
+	else
+	{
+		while (p != NULL)
+		{
+			q = p;
+			if (p->key < t->key)
+				p = p->right;
+			else
+				p = p->left;
+		}
+		t->parent = q;
+		if (q->key < t->key)
+			q->right = t;
+		else
+			q->left = t;
+	}
+	insertfix(t);
+}
+void RBtree::insert(int input)
+{
+	int z, i = 0;
+	z = input;
 	node *p, *q;
 	node *t = new node;
 	t->key = z;
@@ -459,37 +504,104 @@ void RBtree::search()
 
 	}
 }
+bool RBtree::search(int input)
+{
+	stepCounter.comparisonStep = 0;
+	stepCounter.recursionStep = 0;
+	if (root == NULL)
+	{
+		cout << "\nEmpty Tree\n";
+		return;
+	}
+	int x = input;
+	node *p = root;
+	int found = 0;
+	while (p != NULL&& found == 0)
+	{
+		if (p->key == x)
+			found = 1;
+		if (found == 0)
+		{
+			if (p->key < x)
+			{
+				stepCounter.comparisonStep++;
+				p = p->right;
+			}
+			else
+			{
+				stepCounter.comparisonStep++;
+				p = p->left;
+			}
+		}
+	}
+	if (found == 0)
+	{
+		//cout << "\nElement Not Found.";
+		return false;
+	}
+	else
+	{
+		cout << "\n\t FOUND NODE: ";
+		cout << "\n Key: " << p->key;
+		cout << "\n Colour: ";
+		if (p->color == 'b')
+			cout << "Black";
+		else
+			cout << "Red";
+		if (p->parent != NULL)
+			cout << "\n Parent: " << p->parent->key;
+		else
+			cout << "\n There is no parent of the node.  ";
+		if (p->right != NULL)
+			cout << "\n Right Child: " << p->right->key;
+		else
+			cout << "\n There is no right child of the node.  ";
+		if (p->left != NULL)
+			cout << "\n Left Child: " << p->left->key;
+		else
+			cout << "\n There is no left child of the node.  ";
+		cout << endl;
+		return true;
+	}
+}
 int main()
 {
-	int ch, y = 0;
+	//int ch, y = 0;
+	const int inputSize = 1000;
 	RBtree obj;
-	do
-	{
-		cout << "\n\t RED BLACK TREE ";
-		cout << "\n 1. Insert in the tree ";
-		cout << "\n 2. Delete a node from the tree";
-		cout << "\n 3. Search for an element in the tree";
-		cout << "\n 4. Display the tree ";
-		cout << "\n 5. Exit ";
-		cout << "\nEnter Your Choice: ";
-		cin >> ch;
-		switch (ch)
-		{
-		case 1: obj.insert();
-			cout << "\nNode Inserted.\n";
-			break;
-		case 2: obj.del();
-			break;
-		case 3: obj.search();
-			break;
-		case 4: obj.disp();
-			break;
-		case 5: y = 1;
-			break;
-		default: cout << "\nEnter a Valid Choice.";
-		}
-		cout << endl;
+	//do
+	//{
+	//	cout << "\n\t RED BLACK TREE ";
+	//	cout << "\n 1. Insert in the tree ";
+	//	cout << "\n 2. Delete a node from the tree";
+	//	cout << "\n 3. Search for an element in the tree";
+	//	cout << "\n 4. Display the tree ";
+	//	cout << "\n 5. Exit ";
+	//	cout << "\nEnter Your Choice: ";
+	//	cin >> ch;
+	//	switch (ch)
+	//	{
+	//	case 1: obj.insert();
+	//		cout << "\nNode Inserted.\n";
+	//		break;
+	//	case 2: obj.del();
+	//		break;
+	//	case 3: obj.search();
+	//		break;
+	//	case 4: obj.disp();
+	//		break;
+	//	case 5: y = 1;
+	//		break;
+	//	default: cout << "\nEnter a Valid Choice.";
+	//	}
+	//	cout << endl;
 
-	} while (y != 1);
+	//} while (y != 1);
+	for (int i = 0; i < inputSize; i++)
+	{
+		obj.insert(i);
+	}
+	obj.search(inputSize);
+	std::cout << obj.stepCounter.comparisonStep << std::endl;
 	return 1;
 }
