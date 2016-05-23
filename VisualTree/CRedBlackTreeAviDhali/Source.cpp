@@ -54,81 +54,71 @@ void RBtree::insert()
 		while (p != NULL)
 		{
 			q = p;
-			if (p->key<t->key)
+			if (p->key < t->key)
 				p = p->right;
 			else
 				p = p->left;
 		}
 		t->parent = q;
-		if (q->key<t->key)
+		if (q->key < t->key)
 			q->right = t;
 		else
 			q->left = t;
 	}
 	insertfix(t);
 }
-void RBtree::insertfix(node *t)
+void RBtree::insertfix(node *z)
 {
-	node *u;
-	if (root == t)
+	if (z->parent != NULL && z->parent->parent != NULL)
 	{
-		t->color = 'b';
-		return;
-	}
-	while (t->parent != NULL&&t->parent->color == 'r')
-	{
-		node *g = t->parent->parent;
-		if (g->left == t->parent)
+		while (z != NULL && z->parent != NULL &&
+			z->parent->parent != NULL && !z->parent->color == 'b')
+			// ass long as color is not black, thus red
 		{
-			if (g->right != NULL)
+			if (z->parent == z->parent->parent->left)
 			{
-				u = g->right;
-				if (u->color == 'r')
+				node *y = z->parent->parent->right;
+				if (y != NULL && y->color == 'r')
 				{
-					t->parent->color = 'b';
-					u->color = 'b';
-					g->color = 'r';
-					t = g;
+					z->parent->color = 'b';
+					y->color = 'b';
+					z->parent->parent->color = 'r';
+					z = z->parent->parent;
 				}
+				else if (z == z->parent->right)
+				{
+					z = z->parent;
+					leftrotate(z);
+				}
+				z->parent->color = 'b';
+				z->parent->parent->color = 'r';
+				rightrotate(z->parent->parent);
+
 			}
 			else
 			{
-				if (t->parent->right == t)
+
+				node *y = z->parent->parent->left; // left instead of right
+				if (y != NULL && y->color == 'r') // is red?
 				{
-					t = t->parent;
-					leftrotate(t);
+					z->parent->color = 'b'; // color = black
+					y->color = 'b'; // color = black
+					z->parent->parent->color = 'r'; // color = red
+					z = z->parent->parent;
 				}
-				t->parent->color = 'b';
-				g->color = 'r';
-				rightrotate(g);
+				else
+				{
+					if (z == z->parent->left) // left instead of right
+					{
+						z = z->parent;
+						rightrotate(z);
+					}
+					z->parent->color = 'b'; // color is black
+					z->parent->parent->color = 'r'; // color is red
+					leftrotate(z->parent->parent);
+				}
 			}
 		}
-		else
-		{
-			if (g->left != NULL)
-			{
-				u = g->left;
-				if (u->color == 'r')
-				{
-					t->parent->color = 'b';
-					u->color = 'b';
-					g->color = 'r';
-					t = g;
-				}
-			}
-			else
-			{
-				if (t->parent->left == t)
-				{
-					t = t->parent;
-					rightrotate(t);
-				}
-				t->parent->color = 'b';
-				g->color = 'r';
-				leftrotate(g);
-			}
-		}
-		root->color = 'b';
 	}
 }
 
@@ -153,7 +143,7 @@ void RBtree::del()
 			found = 1;
 		if (found == 0)
 		{
-			if (p->key<x)
+			if (p->key < x)
 				p = p->right;
 			else
 				p = p->left;
@@ -436,7 +426,7 @@ void RBtree::search()
 			found = 1;
 		if (found == 0)
 		{
-			if (p->key<x)
+			if (p->key < x)
 				p = p->right;
 			else
 				p = p->left;
