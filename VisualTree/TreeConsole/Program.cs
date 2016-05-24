@@ -9,50 +9,49 @@ namespace TreeConsole
 {
     class Program
     {
-        static readonly int numberOfNumbers = 10;
+        static readonly int max = 10000;
         static void Main(string[] args)
         {
-            int[] inputArray = new int[numberOfNumbers];
-            //BinarySearchTree bst = new BinarySearchTree();
+            StringBuilder sb = new StringBuilder();
+            for (int numberOfNumbers = 0; numberOfNumbers < max; numberOfNumbers++)
+            {
+                if (numberOfNumbers % 1000 == 0)
+                {
+                    for (int i = 10; i < numberOfNumbers; i++)
+                    {
+                        sb.Append(RunTrees(numberOfNumbers));
+                    }  
+                }
+            }
+            WriteToTextFile(sb.ToString());
+        }
+
+        private static StringBuilder RunTrees(int numberOfNumbers)
+        {
+            StringBuilder sb = new StringBuilder();
             AvlTree<int, int> avlTree = new AvlTree<int, int>();
             RedBlackTree redBlackTree = new RedBlackTree("rbTree");
             TwoThreeTree twoThreeTree = new TwoThreeTree(numberOfNumbers);
             for (int i = 1; i <= numberOfNumbers; i++)
             {
-                //bst.Add(i);
                 avlTree.Insert(i, i);
                 redBlackTree.Add(i, i);
                 twoThreeTree.InsertTwoThree(i.ToString());
             }
-            //bst.Contains(0);
-            //Console.WriteLine("Binary seach tree has {0} comparison steps for {1} items", StepCounter.ComparisonStep, numberOfNumbers);
             Random myRandom = new Random();
             int query = myRandom.Next(1, numberOfNumbers);
             int avlTreeOutParameter = 0;
             avlTree.Search(query, out avlTreeOutParameter);
-            WriteToTextFile(string.Format("AVL tree has {0} comparison steps for {1} items", StepCounter.ComparisonStep, numberOfNumbers));
+            sb.Append(string.Format("AVL has \t {0} comparison steps for \t {1} items searching for \t {2}\r\n", StepCounter.ComparisonStep, numberOfNumbers, query));
             redBlackTree.Contains(query);
-            WriteToTextFile(string.Format("RedBlack tree has {0} comparison steps for {1} items", StepCounter.ComparisonStep, numberOfNumbers));
+            sb.Append(string.Format("RBT has \t {0} comparison steps for \t {1} items searching for \t {2}\r\n", StepCounter.ComparisonStep, numberOfNumbers, query));
             twoThreeTree.FindNode(query.ToString());
-            WriteToTextFile(string.Format("TwoThree tree has {0} comparison steps and {2} travelsal steps and {3} recursion steps for {1} items", StepCounter.ComparisonStep));
-            Console.ReadLine();
-        }
-        static int[] GenerateNumbers()
-        {
-            int[] result = new int[numberOfNumbers];
-            for(int i = 0; i < numberOfNumbers; i++)
-            {
-                Random myRandom = new Random();
-                result[i] = myRandom.Next(1, numberOfNumbers);
-            }
-            return result;
+            sb.Append(string.Format("TTT has \t {0} comparison steps for \t {1} items searching for \t{2}\r\n", StepCounter.ComparisonStep, numberOfNumbers, query));
+            return sb;
         }
 
         static void WriteToTextFile(string input)
         {
-            // Example #4: Append new text to an existing file.
-            // The using statement automatically flushes AND CLOSES the stream and calls 
-            // IDisposable.Dispose on the stream object.
             using (System.IO.StreamWriter file =
                 new System.IO.StreamWriter("output.txt", true))
             {
