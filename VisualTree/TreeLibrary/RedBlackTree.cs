@@ -76,7 +76,7 @@ namespace TreeLibrary
                 node.Parent = temp;
                 result = key.CompareTo(temp.Key);
                 if (result == 0)
-                    throw (new RedBlackException("A Node with the same key already exists"));
+                    //throw (new RedBlackException("A Node with the same key already exists"));
                 if (result > 0)
                     temp = temp.Right;
                 else
