@@ -644,5 +644,39 @@ namespace TreeLibrary
         {
             return strIdentifier.ToString();
         }
+
+        public bool Contains(int value)
+        {
+            StepCounter.ResetStepCounter();
+            return (rbTree != null) && SearchRecursively(rbTree, value).Key.CompareTo(value) == 0;
+        }
+        private RedBlackNode SearchRecursively(RedBlackNode node, int value)
+        {
+            StepCounter.ComparisonStep++;
+            int myCompare = node.Key.CompareTo(value);
+            if (node == null || myCompare == 0)
+            {
+                return node;
+            }
+            else if (myCompare == 1)
+            {
+                if (node.Left == null)
+                {
+                    return node;
+                }
+                StepCounter.TraversalStep++;
+                return SearchRecursively(node.Left, value);
+            }
+            else if (myCompare == -1)
+            {
+                if (node.Right == null)
+                {
+                    return node;
+                }
+                StepCounter.TraversalStep++;
+                return SearchRecursively(node.Right, value);
+            }
+            return null;
+        }
     }
 }
