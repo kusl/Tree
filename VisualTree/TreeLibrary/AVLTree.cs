@@ -26,10 +26,11 @@ namespace TreeLibrary
         }
         public bool Search(TKey key, out TValue value)
         {
+            StepCounter.ResetStepCounter();
             AvlNode node = _root;
-
             while (node != null)
             {
+                StepCounter.ComparisonStep++;
                 if (_comparer.Compare(key, node.Key) < 0)
                 {
                     node = node.Left;
@@ -41,7 +42,6 @@ namespace TreeLibrary
                 else
                 {
                     value = node.Value;
-
                     return true;
                 }
             }
