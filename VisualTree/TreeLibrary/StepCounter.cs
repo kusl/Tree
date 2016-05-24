@@ -10,10 +10,12 @@ namespace TreeLibrary
     {
         public static int ComparisonStep { get; set; }
         public static int TraversalStep { get; set; }
+        public static int RecursionStep { get; set; }
         public static void ResetStepCounter()
         {
             ComparisonStep = 0;
-            TraversalStep = 0; 
+            TraversalStep = 0;
+            RecursionStep = 0;
         }
     }
 }

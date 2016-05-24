@@ -27,11 +27,11 @@ namespace TreeConsole
             //bst.Contains(0);
             //Console.WriteLine("Binary seach tree has {0} comparison steps for {1} items", StepCounter.ComparisonStep, numberOfNumbers);
             avlTree.Contains(0);
-            Console.WriteLine("AVL tree has {0} comparison steps for {1} items", StepCounter.ComparisonStep, numberOfNumbers);
+            Console.WriteLine("AVL tree has {0} comparison steps and {2} travelsal steps and {3} recursion steps for {1} items", StepCounter.ComparisonStep, numberOfNumbers, StepCounter.TraversalStep, StepCounter.RecursionStep);
             redBlackTree.Contains(0);
-            Console.WriteLine("RedBlack tree has {0} comparison steps for {1} items", StepCounter.ComparisonStep, numberOfNumbers);
+            Console.WriteLine("RedBlack tree has {0} comparison steps and {2} travelsal steps and {3} recursion steps for {1} items", StepCounter.ComparisonStep, numberOfNumbers, StepCounter.TraversalStep, StepCounter.RecursionStep);
             twoThreeTree.FindNode(0.ToString());
-            Console.WriteLine("TwoThree tree has {0} comparison steps for {1} items", StepCounter.ComparisonStep, numberOfNumbers);
+            Console.WriteLine("TwoThree tree has {0} comparison steps and {2} travelsal steps and {3} recursion steps for {1} items", StepCounter.ComparisonStep, numberOfNumbers, StepCounter.TraversalStep, StepCounter.RecursionStep);
             Console.ReadLine();
         }
         static int[] GenerateNumbers()
