@@ -9,23 +9,23 @@ namespace TreeConsole
 {
     class Program
     {
-        static readonly int numberOfNumbers = 1000;
+        static readonly int numberOfNumbers = 100000;
         static void Main(string[] args)
         {
             int[] inputArray = new int[numberOfNumbers];
-            BinarySearchTree bst = new BinarySearchTree();
+            //BinarySearchTree bst = new BinarySearchTree();
             AvlTree<int, int> avlTree = new AvlTree<int, int>();
             RedBlackTree redBlackTree = new RedBlackTree("rbTree");
             TwoThreeTree twoThreeTree = new TwoThreeTree(numberOfNumbers);
             for (int i = 1; i <= numberOfNumbers; i++)
             {
-                bst.Add(i);
+                //bst.Add(i);
                 avlTree.Insert(i, i);
                 redBlackTree.Add(i, i);
                 twoThreeTree.InsertTwoThree(i.ToString());
             }
-            bst.Contains(0);
-            Console.WriteLine("Binary seach tree has {0} comparison steps for {1} items", StepCounter.ComparisonStep, numberOfNumbers);
+            //bst.Contains(0);
+            //Console.WriteLine("Binary seach tree has {0} comparison steps for {1} items", StepCounter.ComparisonStep, numberOfNumbers);
             avlTree.Contains(0);
             Console.WriteLine("AVL tree has {0} comparison steps for {1} items", StepCounter.ComparisonStep, numberOfNumbers);
             redBlackTree.Contains(0);
