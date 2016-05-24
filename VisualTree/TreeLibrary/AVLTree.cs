@@ -1,46 +1,29 @@
-﻿using System;
+﻿using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TreeLibrary
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Collections;
-
-    public partial class AvlTree<TKey, TValue> : IEnumerable<TValue>
+    public class AvlTree<TKey, TValue> : IEnumerable<TValue>
     {
         private IComparer<TKey> _comparer;
         private AvlNode _root;
-
         public AvlTree(IComparer<TKey> comparer)
         {
             _comparer = comparer;
         }
-
-        public AvlTree()
-            : this(Comparer<TKey>.Default)
-        {
-
-        }
-
+        public AvlTree(): this(Comparer<TKey>.Default){}
         IEnumerator IEnumerable.GetEnumerator()
         {
             return GetEnumerator();
         }
-
         public IEnumerator<TValue> GetEnumerator()
         {
             return new AvlNodeEnumerator(_root);
         }
-
         public void Clear()
         {
             _root = null;
         }
-
         public bool Search(TKey key, out TValue value)
         {
             AvlNode node = _root;
@@ -62,12 +45,9 @@ namespace TreeLibrary
                     return true;
                 }
             }
-
             value = default(TValue);
-
             return false;
         }
-
         public void Insert(TKey key, TValue value)
         {
             if (_root == null)
@@ -119,13 +99,11 @@ namespace TreeLibrary
                     else
                     {
                         node.Value = value;
-
                         return;
                     }
                 }
             }
         }
-
         private void InsertBalance(AvlNode node, int balance)
         {
             while (node != null)
@@ -162,18 +140,14 @@ namespace TreeLibrary
 
                     return;
                 }
-
                 AvlNode parent = node.Parent;
-
                 if (parent != null)
                 {
                     balance = parent.Left == node ? 1 : -1;
                 }
-
                 node = parent;
             }
         }
-
         public bool Delete(TKey key)
         {
             AvlNode node = _root;
@@ -329,7 +303,6 @@ namespace TreeLibrary
 
             return false;
         }
-
         private void DeleteBalance(AvlNode node, int balance)
         {
             while (node != null)
@@ -383,7 +356,6 @@ namespace TreeLibrary
                 node = parent;
             }
         }
-
         private AvlNode RotateLeft(AvlNode node)
         {
             AvlNode right = node.Right;
@@ -418,7 +390,6 @@ namespace TreeLibrary
 
             return right;
         }
-
         private AvlNode RotateRight(AvlNode node)
         {
             AvlNode left = node.Left;
@@ -453,7 +424,6 @@ namespace TreeLibrary
 
             return left;
         }
-
         private AvlNode RotateLeftRight(AvlNode node)
         {
             AvlNode left = node.Left;
@@ -513,7 +483,6 @@ namespace TreeLibrary
 
             return leftRight;
         }
-
         private AvlNode RotateRightLeft(AvlNode node)
         {
             AvlNode right = node.Right;
@@ -573,7 +542,6 @@ namespace TreeLibrary
 
             return rightLeft;
         }
-
         private static void Replace(AvlNode target, AvlNode source)
         {
             AvlNode left = source.Left;
@@ -595,7 +563,6 @@ namespace TreeLibrary
                 right.Parent = target;
             }
         }
-
         sealed class AvlNode
         {
             public AvlNode Parent;
@@ -605,21 +572,17 @@ namespace TreeLibrary
             public TValue Value;
             public int Balance;
         }
-
         sealed class AvlNodeEnumerator : IEnumerator<TValue>
         {
             private AvlNode _root;
             private Action _action;
             private AvlNode _current;
             private AvlNode _right;
-
             public AvlNodeEnumerator(AvlNode root)
             {
                 _right = _root = root;
-
                 _action = root == null ? Action.End : Action.Right;
             }
-
             public bool MoveNext()
             {
                 switch (_action)
@@ -661,14 +624,12 @@ namespace TreeLibrary
                         return false;
                 }
             }
-
             public void Reset()
             {
                 _right = _root;
 
                 _action = _root == null ? Action.End : Action.Right;
             }
-
             public TValue Current
             {
                 get
@@ -676,7 +637,6 @@ namespace TreeLibrary
                     return _current.Value;
                 }
             }
-
             object IEnumerator.Current
             {
                 get
@@ -684,12 +644,10 @@ namespace TreeLibrary
                     return Current;
                 }
             }
-
             public void Dispose()
             {
 
             }
-
             enum Action
             {
                 Parent,

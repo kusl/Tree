@@ -59,6 +59,7 @@
     <Compile Include="TwoThreeTreeTests.cs" />
     <Compile Include="TwoThreeNodeTests.cs" />
     <Compile Include="RedBlackTreeTests.cs" />
+    <Compile Include="AVLTreeTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TreeLibrary\TreeLibrary.csproj">
