@@ -12,23 +12,22 @@ namespace TreeConsole
         static readonly int max = 10000;
         static void Main(string[] args)
         {
-            StringBuilder sb = new StringBuilder();
+
             for (int numberOfNumbers = 0; numberOfNumbers < max; numberOfNumbers++)
             {
-                if (numberOfNumbers % 1000 == 0)
+                if (numberOfNumbers % 100 == 0)
                 {
                     for (int i = 10; i < numberOfNumbers; i++)
                     {
-                        sb.Append(RunTrees(numberOfNumbers));
+                        RunTrees(numberOfNumbers);
                     }  
                 }
             }
-            WriteToTextFile(sb.ToString());
+            Console.ReadLine();
         }
 
-        private static StringBuilder RunTrees(int numberOfNumbers)
+        private static void RunTrees(int numberOfNumbers)
         {
-            StringBuilder sb = new StringBuilder();
             AvlTree<int, int> avlTree = new AvlTree<int, int>();
             RedBlackTree redBlackTree = new RedBlackTree("rbTree");
             TwoThreeTree twoThreeTree = new TwoThreeTree(numberOfNumbers);
@@ -42,12 +41,12 @@ namespace TreeConsole
             int query = myRandom.Next(1, numberOfNumbers);
             int avlTreeOutParameter = 0;
             avlTree.Search(query, out avlTreeOutParameter);
-            sb.Append(string.Format("AVL has \t {0} comparison steps for \t {1} items searching for \t {2}\r\n", StepCounter.ComparisonStep, numberOfNumbers, query));
+            WriteToTextFile(string.Format("AVL has \t {0} comparison steps for \t {1} items searching for \t {2}", StepCounter.ComparisonStep, numberOfNumbers, query));
             redBlackTree.Contains(query);
-            sb.Append(string.Format("RBT has \t {0} comparison steps for \t {1} items searching for \t {2}\r\n", StepCounter.ComparisonStep, numberOfNumbers, query));
+            WriteToTextFile(string.Format("RBT has \t {0} comparison steps for \t {1} items searching for \t {2}", StepCounter.ComparisonStep, numberOfNumbers, query));
             twoThreeTree.FindNode(query.ToString());
-            sb.Append(string.Format("TTT has \t {0} comparison steps for \t {1} items searching for \t{2}\r\n", StepCounter.ComparisonStep, numberOfNumbers, query));
-            return sb;
+            WriteToTextFile(string.Format("TTT has \t {0} comparison steps for \t {1} items searching for \t{2}", StepCounter.ComparisonStep, numberOfNumbers, query));
+            Console.WriteLine();
         }
 
         static void WriteToTextFile(string input)
