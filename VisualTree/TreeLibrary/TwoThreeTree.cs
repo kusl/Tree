@@ -37,9 +37,12 @@ namespace TreeLibrary
         {
             int intTempPointerInside;
             intTempPointerInside = intTop;
+            StepCounter.ResetStepCounter();
             while (intTempPointerInside != intNull)
             {
+                StepCounter.ComparisonStep++;
                 int intLeftDataCompare = Compare(objTree[intTempPointerInside].LeftData, strKey);
+                StepCounter.ComparisonStep++;
                 int intRightDataCompare = Compare(objTree[intTempPointerInside].RightData, strKey);
                 if (intLeftDataCompare == 0)
                 {

@@ -653,6 +653,7 @@ namespace TreeLibrary
         private RedBlackNode SearchRecursively(RedBlackNode node, int value)
         {
             StepCounter.ComparisonStep++;
+            StepCounter.RecursionStep++;
             int myCompare = node.Key.CompareTo(value);
             if (node == null || myCompare == 0)
             {
