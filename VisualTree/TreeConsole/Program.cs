@@ -9,7 +9,7 @@ namespace TreeConsole
 {
     class Program
     {
-        static readonly int numberOfNumbers = 100000;
+        static readonly int numberOfNumbers = 1000;
         static void Main(string[] args)
         {
             int[] inputArray = new int[numberOfNumbers];
@@ -32,7 +32,7 @@ namespace TreeConsole
             Console.WriteLine("RedBlack tree has {0} comparison steps for {1} items", StepCounter.ComparisonStep, numberOfNumbers);
             twoThreeTree.FindNode(0.ToString());
             Console.WriteLine("TwoThree tree has {0} comparison steps for {1} items", StepCounter.ComparisonStep, numberOfNumbers);
-
+            Console.ReadLine();
         }
         static int[] GenerateNumbers()
         {
