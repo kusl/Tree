@@ -10,22 +10,30 @@ namespace TreeConsole
     class Program
     {
         public static List<MyClass> myClasses { get; set; }
-        static readonly int max = 1000000;
+        static readonly int max = 100000;
         static void Main(string[] args)
         {
-            myClasses = new List<MyClass>();
-            //for (int numberOfNumbers = 100; numberOfNumbers < max; numberOfNumbers++)
-            //{
-            //    if (numberOfNumbers % 1000 == 0)
-            //    {
-            //        int whileCounter = 0;
-            //        while (whileCounter < numberOfNumbers / 100)
-            //        {
-            //            RunTrees(numberOfNumbers); 
-            //        }
-            //    }
-            //}
             for (int i = 0; i < 1000; i++)
+            {
+                RunTests(); 
+            }
+        }
+
+        private static void RunTests()
+        {
+            myClasses = new List<MyClass>();
+            for (int numberOfNumbers = 100; numberOfNumbers < max; numberOfNumbers++)
+            {
+                if (numberOfNumbers % 1000 == 0)
+                {
+                    int whileCounter = 0;
+                    while (whileCounter < numberOfNumbers / 100)
+                    {
+                        RunTrees(numberOfNumbers);
+                    }
+                }
+            }
+            for (int i = 0; i < 10; i++)
             {
                 RunTrees(max);
             }
@@ -83,7 +91,7 @@ namespace TreeConsole
             {
                 Comparisons = StepCounter.ComparisonStep
             };
-            WriteToTextFile(myClass.ToString());
+            //WriteToTextFile(myClass.ToString());
             myClasses.Add(myClass);
         }
 
