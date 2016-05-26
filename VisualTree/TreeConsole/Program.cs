@@ -10,17 +10,28 @@ namespace TreeConsole
     class Program
     {
         public static List<MyClass> myClasses { get; set; }
-        static readonly int max = 100000;
+        static readonly int max = 1000;
         static void Main(string[] args)
         {
-            for (int i = 0; i < 1000; i++)
+            int[] local_result = new int[3];
+            int[] result = new int[3];
+            result[0] = result[1] = result[2] = 0;
+            for (int i = 0; i < 100000; i++)
             {
-                RunTests(); 
+                local_result = RunTests();
+                result[0] += local_result[0];
+                result[1] += local_result[1];
+                result[2] += local_result[2];
+            }
+            foreach (var my_result in result)
+            {
+                WriteToTextFile(my_result.ToString());
             }
         }
 
-        private static void RunTests()
+        private static int[] RunTests()
         {
+            int[] result = new int[3];
             myClasses = new List<MyClass>();
             for (int numberOfNumbers = 100; numberOfNumbers < max; numberOfNumbers++)
             {
@@ -55,6 +66,7 @@ namespace TreeConsole
                 }
             }
             WriteToTextFile(string.Format("{0}\t{1}\t{2}", avlScore, rbScore, ttScore));
+            return result;
         }
 
         private static void RunTrees(int numberOfNumbers)
@@ -91,7 +103,7 @@ namespace TreeConsole
             {
                 Comparisons = StepCounter.ComparisonStep
             };
-            //WriteToTextFile(myClass.ToString());
+            WriteToTextFile(myClass.ToString());
             myClasses.Add(myClass);
         }
 
