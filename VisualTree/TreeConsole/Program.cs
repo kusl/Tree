@@ -10,13 +10,13 @@ namespace TreeConsole
     class Program
     {
         public static List<MyClass> myClasses { get; set; }
-        static readonly int max = 1000;
+        static readonly int max = 10000;
         static void Main(string[] args)
         {
             int[] local_result = new int[3];
             int[] result = new int[3];
             result[0] = result[1] = result[2] = 0;
-            for (int i = 0; i < 100000; i++)
+            for (int i = 0; i < 1000000000; i++)
             {
                 local_result = RunTests();
                 result[0] += local_result[0];
