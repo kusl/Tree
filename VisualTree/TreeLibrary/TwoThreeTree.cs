@@ -9,11 +9,13 @@ namespace TreeLibrary
         private string strTempKey;
         TwoThreeStack objTwoThreeStack;
         static readonly int intNull = -1;
+        public int Size { get; private set; }
         public TwoThreeTree()
         {
         }
         public TwoThreeTree(int intSize)
         {
+            Size = 0;
             objTree = new TwoThreeNode[intSize + 1];
             intTreeSize = intSize;
             intTop = intNull;
@@ -94,12 +96,13 @@ namespace TreeLibrary
         }
         public bool InsertTwoThree(string strKey)
         {
-            objTwoThreeStack = new TwoThreeStack(intTreeSize / 2);
+            objTwoThreeStack = new TwoThreeStack(intTreeSize);
             int intTempPointerInside;
             bool bNotDone;
             if (intTop == intNull)
             {
                 NewRoot(Top, strKey, intNull);
+                Size++;
                 return true;
             }
             else
@@ -131,6 +134,7 @@ namespace TreeLibrary
                     }
                     objTwoThreeStack.Clear();
                 }
+                Size++;
                 return true;
             }
         }

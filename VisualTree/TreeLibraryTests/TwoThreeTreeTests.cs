@@ -27,14 +27,18 @@ namespace TreeLibraryTests
         public void TestInsertMoreNodes()
         {
             TwoThreeTree tree = new TwoThreeTree(100000);
-            for(int i = 0; i < 100; i++)
+            for(int i = 0; i < 10; i++)
             {
                 tree.InsertTwoThree(i.ToString());
             }
+            int oldTop = tree.Top;
+            int oldSize = tree.Size;
             for(int i = 100; i < 200; i++)
             {
                 Assert.IsTrue(tree.FindNode(i.ToString()) > 0);
             }
+            Assert.AreEqual(oldTop, tree.Top);
+            Assert.AreEqual(oldSize, tree.Size);
         }
     }
 }

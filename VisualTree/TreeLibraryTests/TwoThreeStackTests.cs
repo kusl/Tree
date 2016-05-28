@@ -10,7 +10,7 @@ namespace TreeLibraryTests
         [TestMethod]
         public void InstantiateTwoThreeStack()
         {
-            TwoThreeStack stack = new TwoThreeStack(5);
+            TwoThreeStack stack = new TwoThreeStack(50);
             Assert.IsTrue(stack.Empty());
         }
     }
