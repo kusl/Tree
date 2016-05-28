@@ -9,102 +9,57 @@ namespace TreeConsole
 {
     class Program
     {
-        public static List<MyClass> myClasses { get; set; }
-        static readonly int max = 10000;
+        public static List<MyClass> MyClasses { get; set; }
+        static readonly int[] SampleSize = { 10, 50, 100, 500, 1000, 5000, 10000, 100000 };
+        static readonly int NumberOfAttempts = 10;
         static void Main(string[] args)
         {
-            int[] local_result = new int[3];
-            int[] result = new int[3];
-            result[0] = result[1] = result[2] = 0;
-            for (int i = 0; i < 1000000000; i++)
+            MyClasses = new List<MyClass>();
+            foreach (int runNumber in SampleSize)
             {
-                local_result = RunTests();
-                result[0] += local_result[0];
-                result[1] += local_result[1];
-                result[2] += local_result[2];
-            }
-            foreach (var my_result in result)
-            {
-                WriteToTextFile(my_result.ToString());
+                RunTrees(runNumber);
             }
         }
 
-        private static int[] RunTests()
-        {
-            int[] result = new int[3];
-            myClasses = new List<MyClass>();
-            for (int numberOfNumbers = 100; numberOfNumbers < max; numberOfNumbers++)
-            {
-                if (numberOfNumbers % 1000 == 0)
-                {
-                    int whileCounter = 0;
-                    while (whileCounter < numberOfNumbers / 100)
-                    {
-                        RunTrees(numberOfNumbers);
-                    }
-                }
-            }
-            for (int i = 0; i < 10; i++)
-            {
-                RunTrees(max);
-            }
-            int avlScore = 0; int rbScore = 0; int ttScore = 0;
-            foreach (var myClass in myClasses)
-            {
-                int myMax = MoreMath.Min(myClass.AVLTree.Comparisons, myClass.RBTree.Comparisons, myClass.TwoThreeTree.Comparisons);
-                if (myMax == myClass.AVLTree.Comparisons)
-                {
-                    avlScore++;
-                }
-                if (myMax == myClass.RBTree.Comparisons)
-                {
-                    rbScore++;
-                }
-                if (myMax == myClass.TwoThreeTree.Comparisons)
-                {
-                    ttScore++;
-                }
-            }
-            WriteToTextFile(string.Format("{0}\t{1}\t{2}", avlScore, rbScore, ttScore));
-            return result;
-        }
-
-        private static void RunTrees(int numberOfNumbers)
+        private static void RunTrees(int runNumber)
         {
             AvlTree<int, int> avlTree = new AvlTree<int, int>();
             RedBlackTree redBlackTree = new RedBlackTree("rbTree");
-            TwoThreeTree twoThreeTree = new TwoThreeTree(numberOfNumbers);
-            for (int i = 1; i <= numberOfNumbers; i++)
+            TwoThreeTree twoThreeTree = new TwoThreeTree(runNumber);
+            for (int i = 1; i <= runNumber; i++)
             {
                 avlTree.Insert(i, i);
                 redBlackTree.Add(i, i);
                 twoThreeTree.InsertTwoThree(i.ToString());
             }
-            Random myRandom = new Random();
-            int query = myRandom.Next(1, numberOfNumbers);
-            int avlTreeOutParameter = 0;
-            MyClass myClass = new MyClass()
+            for (int i = 0; i < NumberOfAttempts; i++)
             {
-                Ceiling = numberOfNumbers,
-                Query = query
-            };
-            avlTree.Search(query, out avlTreeOutParameter);
-            myClass.AVLTree = new MyOutput()
-            {
-                Comparisons = StepCounter.ComparisonStep
-            };
-            redBlackTree.Contains(query);
-            myClass.RBTree = new MyOutput()
-            {
-                Comparisons = StepCounter.ComparisonStep
-            };
-            twoThreeTree.FindNode(query.ToString());
-            myClass.TwoThreeTree = new MyOutput()
-            {
-                Comparisons = StepCounter.ComparisonStep
-            };
-            WriteToTextFile(myClass.ToString());
-            myClasses.Add(myClass);
+                Random myRandom = new Random();
+                int query = myRandom.Next(1, runNumber);
+                int avlTreeOutParameter = 0;
+                MyClass myClass = new MyClass()
+                {
+                    Ceiling = runNumber,
+                    Query = query
+                };
+                avlTree.Search(query, out avlTreeOutParameter);
+                myClass.AVLTree = new MyOutput()
+                {
+                    Comparisons = StepCounter.ComparisonStep
+                };
+                redBlackTree.Contains(query);
+                myClass.RBTree = new MyOutput()
+                {
+                    Comparisons = StepCounter.ComparisonStep
+                };
+                twoThreeTree.FindNode(query.ToString());
+                myClass.TwoThreeTree = new MyOutput()
+                {
+                    Comparisons = StepCounter.ComparisonStep
+                };
+                WriteToTextFile(myClass.ToString());
+                MyClasses.Add(myClass); 
+            }
         }
 
         static void WriteToTextFile(string input)

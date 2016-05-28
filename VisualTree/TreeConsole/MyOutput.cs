@@ -19,7 +19,8 @@ namespace TreeConsole
         public MyOutput TwoThreeTree { get; set; }
         public override string ToString()
         {
-            return String.Format("Ceiling: {0}, Query: {1}, AVLTree: {2}, RBTree: {3}, TwoThreeTree: {4}", Ceiling, Query, AVLTree.Comparisons, RBTree.Comparisons, TwoThreeTree.Comparisons);
+            //return String.Format("Ceiling: {0}, Query: {1}, AVLTree: {2}, RBTree: {3}, TwoThreeTree: {4}", Ceiling, Query, AVLTree.Comparisons, RBTree.Comparisons, TwoThreeTree.Comparisons);
+            return String.Format("{0},{1},{2},{3},{4}", Ceiling, Query, AVLTree.Comparisons, RBTree.Comparisons, TwoThreeTree.Comparisons);
         }
     }
 }
