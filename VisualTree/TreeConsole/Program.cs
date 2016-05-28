@@ -10,9 +10,9 @@ namespace TreeConsole
     class Program
     {
         public static List<MyClass> MyClasses { get; set; }
-        //static readonly int[] SampleSize = { 10, 50, 100, 500, 1000, 5000, 10000, 100000 };        
-        static readonly int[] SampleSize = { 10, 50 };
-        static readonly int NumberOfAttempts = 1;
+        static readonly int[] SampleSize = { 10, 50, 100, 500, 1000, 5000, 10000, 100000 };        
+        //static readonly int[] SampleSize = { 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 50, 100 };
+        static readonly int NumberOfAttempts = 10;
         static void Main(string[] args)
         {
             MyClasses = new List<MyClass>();
@@ -46,9 +46,9 @@ namespace TreeConsole
             }
             for (int i = 0; i < NumberOfAttempts; i++)
             {
-                //Random myRandom = new Random();
-                //int query = myRandom.Next(1, runNumber);
-                int query = 0;
+                Random myRandom = new Random(i);
+                int query = myRandom.Next(0, runNumber * 2);
+                //int query = 0;
                 int avlTreeOutParameter = 0;
                 MyClass myClass = new MyClass()
                 {

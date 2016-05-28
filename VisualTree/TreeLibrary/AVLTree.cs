@@ -30,17 +30,19 @@ namespace TreeLibrary
             AvlNode node = _root;
             while (node != null)
             {
-                StepCounter.ComparisonStep++;
                 if (_comparer.Compare(key, node.Key) < 0)
                 {
+                    StepCounter.ComparisonStep++;
                     node = node.Left;
                 }
                 else if (_comparer.Compare(key, node.Key) > 0)
                 {
+                    StepCounter.ComparisonStep++;
                     node = node.Right;
                 }
                 else
                 {
+                    StepCounter.ComparisonStep++;
                     value = node.Value;
                     return true;
                 }

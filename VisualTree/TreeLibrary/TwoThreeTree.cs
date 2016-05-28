@@ -33,6 +33,7 @@ namespace TreeLibrary
         {
             int intCompare = 1;
             if (strTemp1 != null) { intCompare = String.Compare(strTemp1, strTemp2); }
+            StepCounter.ComparisonStep++;
             return intCompare;
         }
         public int FindNode(string strKey)
@@ -42,9 +43,7 @@ namespace TreeLibrary
             StepCounter.ResetStepCounter();
             while (intTempPointerInside != intNull)
             {
-                StepCounter.ComparisonStep++;
                 int intLeftDataCompare = Compare(objTree[intTempPointerInside].LeftData, strKey);
-                StepCounter.ComparisonStep++;
                 int intRightDataCompare = Compare(objTree[intTempPointerInside].RightData, strKey);
                 if (intLeftDataCompare == 0)
                 {

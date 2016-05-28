@@ -652,8 +652,8 @@ namespace TreeLibrary
         }
         private RedBlackNode SearchRecursively(RedBlackNode node, int value)
         {
-            StepCounter.ComparisonStep++;
             StepCounter.RecursionStep++;
+            StepCounter.ComparisonStep++;
             int myCompare = node.Key.CompareTo(value);
             if (node == null || myCompare == 0)
             {
@@ -665,7 +665,6 @@ namespace TreeLibrary
                 {
                     return node;
                 }
-                StepCounter.TraversalStep++;
                 return SearchRecursively(node.Left, value);
             }
             else if (myCompare == -1)
@@ -674,7 +673,6 @@ namespace TreeLibrary
                 {
                     return node;
                 }
-                StepCounter.TraversalStep++;
                 return SearchRecursively(node.Right, value);
             }
             return null;
