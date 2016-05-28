@@ -10,8 +10,9 @@ namespace TreeConsole
     class Program
     {
         public static List<MyClass> MyClasses { get; set; }
-        static readonly int[] SampleSize = { 10, 50, 100, 500, 1000, 5000, 10000, 100000 };
-        static readonly int NumberOfAttempts = 10;
+        //static readonly int[] SampleSize = { 10, 50, 100, 500, 1000, 5000, 10000, 100000 };        
+        static readonly int[] SampleSize = { 10, 50 };
+        static readonly int NumberOfAttempts = 1;
         static void Main(string[] args)
         {
             MyClasses = new List<MyClass>();
