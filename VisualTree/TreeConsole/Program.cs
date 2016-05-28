@@ -15,10 +15,21 @@ namespace TreeConsole
         static void Main(string[] args)
         {
             MyClasses = new List<MyClass>();
+            int avlTreeScore = 0;
+            int rbTreeScore = 0;
+            int ttTreeScore = 0;
             foreach (int runNumber in SampleSize)
             {
                 RunTrees(runNumber);
             }
+            foreach (var myclass in MyClasses)
+            {
+                int min = MoreMath.Min(myclass.AVLTree.Comparisons, myclass.RBTree.Comparisons, myclass.TwoThreeTree.Comparisons);
+                if (min == myclass.AVLTree.Comparisons) { avlTreeScore++; }
+                if (min == myclass.RBTree.Comparisons) { rbTreeScore++; }
+                if (min == myclass.TwoThreeTree.Comparisons) { ttTreeScore++; }
+            }
+            WriteToTextFile(string.Format("{0},{1},{2}", avlTreeScore, rbTreeScore, ttTreeScore));
         }
 
         private static void RunTrees(int runNumber)

@@ -37,6 +37,10 @@ namespace TreeLibraryTests
             {
                 Assert.IsTrue(tree.FindNode(i.ToString()) > 0);
             }
+            for (int i = 0; i < 10; i++)
+            {
+                Assert.IsTrue(tree.FindNode(i.ToString()) < 0);
+            }
             Assert.AreEqual(oldTop, tree.Top);
             Assert.AreEqual(oldSize, tree.Size);
         }
